@@ -1,0 +1,2 @@
+class ChoirMembersController < ApplicationController
+end

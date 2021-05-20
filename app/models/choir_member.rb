@@ -1,0 +1,2 @@
+class ChoirMember < ApplicationRecord
+end
