@@ -1,0 +1,4 @@
+<h1>List of all Choir Members:</h1>
+<% @choir_members.each do |member| %>
+    <%= link_to member.name, choir_member_path(member) %><br>
+    <% end %>
