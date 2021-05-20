@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    <%= button_to "Google Log-in", '/auth/google_oauth2' %>
+    <%= button_to "Google Log-in", '/auth/google_oauth2' %><br>
+    <%= link_to "Sign-up", new_choir_member_path %>
     <%= yield %>
   </body>
 </html>
