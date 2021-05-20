@@ -13,17 +13,16 @@
 ActiveRecord::Schema.define(version: 2021_05_20_141506) do
 
   create_table "choir_members", force: :cascade do |t|
-    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.string "uid"
     t.string "provider"
     t.string "name"
     t.string "voice"
-    t.string "height"
+    t.integer "height"
     t.string "home_locale"
-    t.string "age"
-    t.string "phone_number"
+    t.integer "age"
+    t.integer "phone_number"
     t.string "district"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
