@@ -7,6 +7,7 @@ class ChoirMembersController < ApplicationController
     def create
         @choir_member = ChoirMember.new(choir_member_params)
         if @choir_member.save
+            session[:choir_member_id] = @choir_member.id
             redirect_to choir_members_path
         else
             render 'new'
