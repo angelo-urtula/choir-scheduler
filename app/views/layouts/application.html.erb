@@ -12,6 +12,7 @@
 
   <body>
     <%= button_to "Google Log-in", '/auth/google_oauth2' %><br>
+    <%= link_to "Log in", "/login" %>
     <%= link_to "Choir Members can sign-up here", new_choir_member_path %>
     <%= yield %>
   </body>
