@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  choir_member_id: 
+  choir_leader_id: 
+  language: MyString
+  time: 2021-05-21 09:41:44
+  locale: MyString
+  hymns: MyString
+
+two:
+  choir_member_id: 
+  choir_leader_id: 
+  language: MyString
+  time: 2021-05-21 09:41:44
+  locale: MyString
+  hymns: MyString
