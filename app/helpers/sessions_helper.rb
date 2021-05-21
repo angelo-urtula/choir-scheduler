@@ -9,7 +9,6 @@ module SessionsHelper
     end
 
     def log_out
-        session.delete(:choir_member_id)
+        session.clear
     end
-        
 end
