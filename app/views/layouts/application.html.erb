@@ -16,7 +16,7 @@
   <%= link_to "Logout", logout_path, method: :delete %>
   <% else %>
     <%= button_to "Google Log-in", '/auth/google_oauth2' %><br>
-    <%= link_to "Log in", "/login" %>
+    <%= link_to "Log in", "/login" %><br>
     <%= link_to "Choir Members can sign-up here", new_choir_member_path %>
     <% end %>
 
