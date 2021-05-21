@@ -1,8 +1,8 @@
 class CreateServiceTimes < ActiveRecord::Migration[6.1]
   def change
     create_table :service_times do |t|
-      t.foreign_key :choir_members
-      t.foreign_key :choir_leaders
+      t.integer :choir_member_id
+      t.integer :choir_leader_id
       t.string :language
       t.datetime :time
       t.string :locale
