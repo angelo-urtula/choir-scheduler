@@ -7,4 +7,9 @@ module SessionsHelper
     def logged_in?
         !!session[:choir_member_id]
     end
+
+    def log_out
+        session.delete(:choir_member_id)
+    end
+        
 end
