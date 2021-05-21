@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_134428) do
 
   create_table "choir_leaders", force: :cascade do |t|
     t.string "name"
+    t.string "password_digest"
     t.string "home_locale"
     t.string "email"
     t.integer "phone_number"
