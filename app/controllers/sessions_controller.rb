@@ -14,11 +14,14 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(:email => params[:email])
+        @user = ChoirMember.find_by(:email => params[:email].downcase)
         if @user && @user.authenticate(params[:password])
             session[:choir_member_id] = @user.id
+            redirect_to choir_members_path
         else
-            redirect '/login'
+           
+            render '/sessions/login'
+            flash.now[:danger] = 'Incorrect email and/or password'
         end
     end
 
