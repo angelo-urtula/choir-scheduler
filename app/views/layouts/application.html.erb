@@ -19,6 +19,11 @@
     <%= link_to "Log in", "/login" %>
     <%= link_to "Choir Members can sign-up here", new_choir_member_path %>
     <% end %>
+
+    
     <%= yield %>
+    <% flash.each do |type, msg| %>
+      <%= msg %>
+      <% end %>
   </body>
 </html>
