@@ -11,14 +11,11 @@
   </head>
 
   <body>
-  <% if admin_logged_in? %>
+  <% if admin_logged_in? || user_logged_in? %>
   Hello, Choir Leader <%= current_login.name %><br>
   <%= link_to "Logout", logout_path, method: :delete %>
-  <% elsif user_logged_in? %>
-  Hello, Choir Member <%= current_login.name %><br>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  
   <% else %>
-    <%= button_to "Google Log-in", '/auth/google_oauth2' %><br>
     <%= link_to "Log in", "/login" %><br>
     <%= link_to "Choir Members can sign-up here", new_choir_member_path %>
     <% end %>

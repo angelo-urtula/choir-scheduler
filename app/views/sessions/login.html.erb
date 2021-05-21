@@ -1,10 +1,12 @@
-<% if logged_in? %>
-You are already logged in as: <%= current_user.name %>
+<% if user_logged_in? || admin_logged_in? %>
+You are already logged in as: <%= current_login.name %>
 <% else %>
 <h1> Log In Here: </h1>
 <%= form_tag '/login' do %>
     Email: <%= text_field_tag :email %><br>
     Password: <%= password_field_tag :password %><br>
     <%= submit_tag "Log in" %>
-    <% end %>
+    <% end %><br>
+    OR
+    <%= button_to "Google Log-in", '/auth/google_oauth2' %><br>
     <% end %>
