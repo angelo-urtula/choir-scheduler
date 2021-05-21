@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_141506) do
+ActiveRecord::Schema.define(version: 2021_05_21_134428) do
+
+  create_table "choir_leaders", force: :cascade do |t|
+    t.string "name"
+    t.string "home_locale"
+    t.string "email"
+    t.integer "phone_number"
+    t.string "district"
+    t.string "voice"
+    t.boolean "organist"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "choir_members", force: :cascade do |t|
     t.string "email"
@@ -24,6 +36,17 @@ ActiveRecord::Schema.define(version: 2021_05_20_141506) do
     t.integer "age"
     t.integer "phone_number"
     t.string "district"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "service_times", force: :cascade do |t|
+    t.integer "choir_member_id"
+    t.integer "choir_leader_id"
+    t.string "language"
+    t.datetime "time"
+    t.string "locale"
+    t.string "hymns"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
