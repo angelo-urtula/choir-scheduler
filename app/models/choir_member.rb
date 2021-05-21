@@ -8,7 +8,7 @@ class ChoirMember < ApplicationRecord
     validates :age, :inclusion => 14..99, :allow_nil => true
 
     def self.create_from_omniauth(auth)
-        user = ChoirMember.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
+        ChoirMember.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex(16)
