@@ -19,10 +19,14 @@ class SessionsController < ApplicationController
             session[:choir_member_id] = @user.id
             redirect_to choir_members_path
         else
-           
-            render '/sessions/login'
             flash.now[:danger] = 'Incorrect email and/or password'
+            render '/sessions/login'
         end
+    end
+
+    def destroy
+        log_out
+        redirect_to root_url
     end
 
     private
