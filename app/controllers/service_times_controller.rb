@@ -1,11 +1,15 @@
 class ServiceTimesController < ApplicationController
     def index
-        @service_times = ServiceTime.order('time ASC')
+        if params[:choir_leader_id]
+            @service_times = ChoirLeader.find(params[:choir_leader_id]).service_times
+        else
+            @service_times = ServiceTime.order('time ASC')
+        end
     end
 
     def new
         if admin_logged_in?
-            @service_time = ServiceTime.new
+            @service_time = ServiceTime.new(choir_leader_id: params[:choir_leader_id])
         else 
             redirect_to service_times_path
         end
@@ -13,8 +17,6 @@ class ServiceTimesController < ApplicationController
     
     def create
         service = ServiceTime.create(service_time_params)
-        service[:choir_leader_id] = current_login.id
-        service.save
         redirect_to service_times_path
     end
 
