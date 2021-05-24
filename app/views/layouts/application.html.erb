@@ -12,10 +12,11 @@
 
   <body>
   <% if admin_logged_in? %>
-  Hello, Choir Leader <%= current_login.name %><br>
+  Hello, Choir Leader <%= link_to current_login.name, choir_leader_path(current_login) %><br>
   <%= link_to "Logout", logout_path, method: :delete %>
   <% elsif user_logged_in? %>
-  Hello Choir Member <%= current_login.name %><br>
+  Hello Choir Member <%= link_to current_login.name, choir_member_path(current_login) %><br>
+  <%= link_to "Edit your Profile", edit_choir_member_path(current_login) %><br>
   <%= link_to "Logout", logout_path, method: :delete %>
   
   <% else %>
