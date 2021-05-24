@@ -1,6 +1,6 @@
 class ServiceTimesController < ApplicationController
     def index
-        @service_times = ServiceTime.all
+        @service_times = ServiceTime.order('time ASC')
     end
 
     def new
