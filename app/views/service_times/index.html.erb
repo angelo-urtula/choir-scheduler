@@ -1,8 +1,13 @@
+<br>
+<% if params[:choir_leader_id] %>
+<h1><%= link_to ChoirLeader.find(params[:choir_leader_id]).name, choir_leader_path(params[:choir_leader_id]) %> is in charge of the following times: </h1>
+<% end %>
+
 <h1>Today's Service Times:<br> <% @service_times.todays_services.each do |time| %>
     <%= time.time.to_formatted_s(:long) %><br>
     <% end %></h1>
 
-    <h2>List of All Services:<br>
+    <h2>Future Services:<br>
     <% @service_times.scheduled_services.each do |time| %>
         <%= link_to time.time.to_formatted_s(:long), service_time_path(time) %><br>
         <% end %>
