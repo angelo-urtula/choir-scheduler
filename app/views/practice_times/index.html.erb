@@ -9,5 +9,5 @@
 
     <h2>Future Practices:<br>
     <% @practice_times.scheduled_practices.each do |time| %>
-        <%= link_to time.time.to_formatted_s(:long), service_time_path(time) %><br>
+        <%= link_to time.time.to_formatted_s(:long), practice_time_path(time) %><br>
         <% end %>

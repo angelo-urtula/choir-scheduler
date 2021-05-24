@@ -1,7 +1,0 @@
- <h1> Service Details for <%= @service_time.time.to_formatted_s(:long) %></h1><br>
- <h2> Choir Leader in charge: 
- <%= link_to @service_time.choir_leader.name, choir_leader_path(@service_time.choir_leader) %><br>
- <h3> Language: <%= @service_time.language %><br>
- Locale: <%= @service_time.locale %><br>
- Hymns: <%= @service_time.hymns %><br>
- Currently signed up choir member:

@@ -1,0 +1,7 @@
+ <h1> Practice Details for <%= @practice_time.time.to_formatted_s(:long) %></h1><br>
+ <h2> Choir Leader in charge: 
+ <%= link_to @practice_time.choir_leader.name, choir_leader_path(@practice_time.choir_leader) %><br>
+ <h3> Language: <%= @practice_time.language %><br>
+ Locale: <%= @practice_time.locale %><br>
+ Hymns: <%= @practice_time.hymns %><br>
+ Currently signed up choir member:
