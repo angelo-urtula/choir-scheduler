@@ -3,6 +3,6 @@
     <% end %></h1>
 
     <h2>List of All Services:<br>
-    <% @service_times.each do |time| %>
+    <% @service_times.scheduled_services.each do |time| %>
         <%= time.time.to_formatted_s(:long) %><br>
         <% end %>
