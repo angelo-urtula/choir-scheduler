@@ -11,8 +11,11 @@
   </head>
 
   <body>
-  <% if admin_logged_in? || user_logged_in? %>
+  <% if admin_logged_in? %>
   Hello, Choir Leader <%= current_login.name %><br>
+  <%= link_to "Logout", logout_path, method: :delete %>
+  <% elsif user_logged_in? %>
+  Hello Choir Member <%= current_login.name %><br>
   <%= link_to "Logout", logout_path, method: :delete %>
   
   <% else %>
