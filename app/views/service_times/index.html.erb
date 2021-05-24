@@ -1,3 +1,8 @@
-<h1>Today's Service Times: <% @service_times.todays_services.each do |time| %>
-    <%= time.time %>
-    <% end %>
+<h1>Today's Service Times:<br> <% @service_times.todays_services.each do |time| %>
+    <%= time.time.to_formatted_s(:long) %><br>
+    <% end %></h1>
+
+    <h2>List of All Services:<br>
+    <% @service_times.each do |time| %>
+        <%= time.time.to_formatted_s(:long) %><br>
+        <% end %>
