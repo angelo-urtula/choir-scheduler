@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_134428) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "service_times", force: :cascade do |t|
+  create_table "practice_times", force: :cascade do |t|
     t.integer "choir_member_id"
     t.integer "choir_leader_id"
     t.string "language"
