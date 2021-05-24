@@ -16,7 +16,19 @@ class ChoirMembersController < ApplicationController
 
     def edit
         @choir_member = ChoirMember.find(params[:id])
+        if current_login == @choir_member
+            render 'edit'
+        else
+            redirect_to choir_members_path
+        end
     end
+    
+    def update
+        @choir_member = ChoirMember.find(params[:id])
+        @choir_member = ChoirMember.update(choir_member_params)
+        redirect_to choir_members_path
+    end
+        
 
     def show
         @choir_member = ChoirMember.find(params[:id])
