@@ -1,0 +1,2 @@
+class ServiceTimesController < ApplicationController
+end
