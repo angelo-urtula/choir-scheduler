@@ -1,0 +1,12 @@
+<%= form_for @service_time do |f|%>
+    <p>
+      <%= f.label :language %>
+      <%= f.text_field :language %>
+    </p>
+    <p>
+      <%= f.label :time %>
+      <%= f.datetime_local_field :time %>
+    </p>
+ 
+      <%= f.submit %>
+    <% end %>
