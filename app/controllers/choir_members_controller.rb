@@ -23,7 +23,7 @@ class ChoirMembersController < ApplicationController
     end
 
     def index
-        @choir_members = ChoirMember.all
+        @choir_members = ChoirMember.order('name ASC')
     end
 
     def choir_member_params
