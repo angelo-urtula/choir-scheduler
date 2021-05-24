@@ -12,7 +12,9 @@ class ServiceTimesController < ApplicationController
     end
     
     def create
-        ServiceTime.create(service_time_params)
+        service = ServiceTime.create(service_time_params)
+        service[:choir_leader_id] = current_login.id
+        service.save
         redirect_to service_times_path
     end
 
