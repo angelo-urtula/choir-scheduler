@@ -4,7 +4,11 @@ class ServiceTimesController < ApplicationController
     end
 
     def new
-        @service_time = ServiceTime.new
+        if admin_logged_in?
+            @service_time = ServiceTime.new
+        else 
+            redirect_to service_times_path
+        end
     end
     
     def create
@@ -13,7 +17,11 @@ class ServiceTimesController < ApplicationController
     end
 
     def edit
-        find_service
+        if admin_logged_in?
+            find_service
+        else
+            redirect_to service_times_path
+        end
     end
 
     def show
