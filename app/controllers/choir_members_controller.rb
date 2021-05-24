@@ -40,5 +40,5 @@ class ChoirMembersController < ApplicationController
 
     def choir_member_params
         params.require(:choir_member).permit(:name, :email, :password, :password_confirmation, :voice, :height, :home_locale, :age, :phone_number, :district)
-      end
+    end
 end
