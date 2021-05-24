@@ -1,0 +1,4 @@
+<h1>List of all Choir Leaders:</h1>
+<% @choir_leaders.each do |leader| %>
+    <%= link_to leader.name, choir_leader_path(leader) %><br>
+    <% end %>
