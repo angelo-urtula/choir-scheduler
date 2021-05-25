@@ -10,6 +10,7 @@ class ChoirMembersController < ApplicationController
             session[:choir_member_id] = @choir_member.id
             redirect_to choir_members_path
         else
+            flash.now[:messages] = @choir_member.errors.full_messages
             render 'new'
         end
     end
@@ -25,8 +26,12 @@ class ChoirMembersController < ApplicationController
     
     def update
         @choir_member = ChoirMember.find(params[:id])
-        @choir_member = ChoirMember.update(choir_member_params)
-        redirect_to choir_members_path
+        if @choir_member.update(choir_member_params)
+        redirect_to choir_member_path
+        else 
+            flash.now[:messages] = @choir_member.errors.full_messages
+            render 'edit'
+        end
     end
         
 
