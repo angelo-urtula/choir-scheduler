@@ -7,6 +7,14 @@
       <%= f.label :time %>
       <%= f.datetime_local_field :time %>
     </p>
+    <p>
+      <%= f.label :locale %>
+      <%= f.text_field :locale %>
+    </p>
+    <p>
+      <%= f.label :hymns %>
+      <%= f.text_field :hymns %>
+    </p>
     <%= f.hidden_field :choir_leader_id %>
  
       <%= f.submit %>
