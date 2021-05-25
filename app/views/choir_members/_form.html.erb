@@ -7,6 +7,7 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
     </p>
+    <% if !@choir_member[:uid] %>
     <p>
       <%= f.label :password %>
       <%= f.password_field :password %>
@@ -15,6 +16,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
     </p>
+    <% end %>
     <p>
       <%= f.label :voice %>
       <%= f.text_field :voice %>
