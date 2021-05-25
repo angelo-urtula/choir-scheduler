@@ -5,7 +5,7 @@ class CreateChoirLeaders < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.string :home_locale
       t.string :email
-      t.integer :phone_number
+      t.string :phone_number
       t.string :district
       t.string :voice
       t.boolean :organist

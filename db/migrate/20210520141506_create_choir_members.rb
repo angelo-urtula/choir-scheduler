@@ -10,7 +10,7 @@ class CreateChoirMembers < ActiveRecord::Migration[6.1]
       t.integer :height
       t.string :home_locale
       t.integer :age
-      t.integer :phone_number
+      t.string :phone_number
       t.string :district
 
       t.timestamps

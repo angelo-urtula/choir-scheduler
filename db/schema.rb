@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_134428) do
     t.string "password_digest"
     t.string "home_locale"
     t.string "email"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "district"
     t.string "voice"
     t.boolean "organist"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_134428) do
     t.integer "height"
     t.string "home_locale"
     t.integer "age"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "district"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
