@@ -2,7 +2,7 @@ class ChoirMember < ApplicationRecord
     has_secure_password
     validates :name, presence: true
     validates :voice, :inclusion => %w(soprano alto tenor base), :allow_nil => true
-    validates_format_of :phone_number, :with => /[0-9]{10}/, :allow_nil => true
+    validates :phone_number, :numericality => true, :length => { :minimum => 10, :maximum =>10 }, :allow_nil => true
     validates :email, presence: true, uniqueness: true
     validates :height, :inclusion => 91..243, :allow_nil => true
     validates :age, :inclusion => 14..99, :allow_nil => true
