@@ -1,21 +1,24 @@
  <h1> Practice Details for <%= @practice_time.time.to_formatted_s(:long) %></h1><br>
+ 
  <% if current_login == @practice_time.choir_leader %>
  <%= link_to "Edit Practice Time", edit_practice_time_path(@practice_time) %>
  <%= button_to "Delete Practice Time", practice_time_path(@practice_time), method: :delete, data: {confirm: "Are you sure you want to delete this practice time?"} %>
  <% end %>
+ 
  <h2> Choir Leader in charge: 
- <%= link_to @practice_time.choir_leader.name, choir_leader_path(@practice_time.choir_leader) %><br>
- <h3> Language: <%= @practice_time.language %><br>
+ <%= link_to @practice_time.choir_leader.name, choir_leader_path(@practice_time.choir_leader) %></h2><br>
+ 
+ <h3> 
+ Language: <%= @practice_time.language %><br>
  Locale: <%= @practice_time.locale %><br>
- Hymns: <%= @practice_time.hymns %><br>
+ Hymns: <%= @practice_time.hymns %></h3><br>
+ 
  Currently signed up choir member:
  <% if @practice_time.choir_member %>
  <%= link_to @practice_time.choir_member.name, choir_member_path(@practice_time.choir_member) %>
- <% else %>
- <% if user_logged_in? && !@practice_time.choir_member %>
+ <% elsif user_logged_in? && !@practice_time.choir_member %>
  <%= form_for @practice_time do |f| %>
     <%= f.hidden_field :choir_member_id, value: @choir_member.id %>
     <%= f.submit "Reserve this Practice Time" %>
-    <% end %>
     <% end %>
     <% end %>
