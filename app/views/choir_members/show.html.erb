@@ -10,4 +10,9 @@ Practices <%= @choir_member.name %> has signed up for:<br>
 <% @choir_member.practice_times.each do |time| %>
     <%= link_to "#{time.time.to_formatted_s(:long)} with Choir Leader #{time.choir_leader.name}", practice_time_path(time) %><br>
     <% end %>
+    <br>
+Choir Leaders that <%= @choir_member.name %> has practiced with recently:<br>
+<% @choir_member.choir_leaders.uniq.each do |leader| %>
+    <%= link_to leader.name, choir_leader_path(leader) %><br>
+    <% end %>
 
