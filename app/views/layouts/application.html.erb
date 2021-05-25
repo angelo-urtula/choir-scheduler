@@ -13,6 +13,7 @@
   <body><br>
   <% if admin_logged_in? %>
   Hello, Choir Leader <%= link_to current_login.name, choir_leader_path(current_login) %><br>
+  <%= link_to "Edit your Profile", edit_choir_leader_path(current_login) %><br>
   <%= link_to "Logout", logout_path, method: :delete %><br>
   <%= link_to "Create a new Practice Time", new_choir_leader_practice_time_path(current_login) %><br>
   <% elsif user_logged_in? %>
