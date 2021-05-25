@@ -22,18 +22,18 @@ class PracticeTimesController < ApplicationController
 
     def edit
         if admin_logged_in?
-            find_Practice
+            find_practice
         else
             redirect_to practice_times_path
         end
     end
 
     def show
-        find_Practice
+        find_practice
     end
 
     def update
-        find_Practice
+        find_practice
         @practice_time.update(practice_time_params)
         redirect_to practice_times_path
     end
@@ -44,7 +44,7 @@ class PracticeTimesController < ApplicationController
         params.require(:practice_time).permit(:choir_leader_id, :choir_member_id, :language, :time, :locale, :hymns)
     end
 
-    def find_Practice
+    def find_practice
         @practice_time = PracticeTime.find(params[:id])
     end
 end
