@@ -5,7 +5,13 @@
  Locale: <%= @practice_time.locale %><br>
  Hymns: <%= @practice_time.hymns %><br>
  Currently signed up choir member:
+ <% if @practice_time.choir_member %>
+ <%= link_to @practice_time.choir_member.name, choir_member_path(@practice_time.choir_member) %>
+ <% else %>
+ <% if user_logged_in? && !@practice_time.choir_member %>
  <%= form_for @practice_time do |f| %>
     <%= f.hidden_field :choir_member_id, value: @choir_member.id %>
     <%= f.submit "Reserve this Practice Time" %>
+    <% end %>
+    <% end %>
     <% end %>
