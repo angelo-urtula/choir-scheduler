@@ -1,6 +1,6 @@
 class ChoirMember < ApplicationRecord
     has_secure_password
-    validates :password, length: {minimum: 6}
+    #validates :password, length: {minimum: 6}
     validates :name, presence: true
     validates :voice, :inclusion => %w(soprano alto tenor base), :allow_nil => true
     validates :phone_number, :numericality => true, :length => { :minimum => 10, :maximum =>10 }, :allow_nil => true
