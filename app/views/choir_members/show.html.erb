@@ -6,4 +6,8 @@ District: <%= @choir_member.district %><br>
 Age: <%= @choir_member.age %><br>
 Email: <%= @choir_member.email %><br>
 Phone Number: <%= @choir_member.phone_number %><br>
+Practices <%= @choir_member.name %> has signed up for:<br>
+<% @choir_member.practice_times.each do |time| %>
+    <%= link_to "#{time.time.to_formatted_s(:long)} with Choir Leader #{time.choir_leader.name}", practice_time_path(time) %><br>
+    <% end %>
 
