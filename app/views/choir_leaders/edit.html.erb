@@ -1,0 +1,35 @@
+<%= form_for @choir_leader do |f|%>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= f.label :voice %>
+      <%= f.text_field :voice %>
+    </p>
+    <p>
+      <%= f.label :home_locale %>
+      <%= f.text_field :home_locale %>
+    </p>
+    <p>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+    </p>
+    <p>
+      <%= f.label :district %>
+      <%= f.text_field :district %>
+    </p>
+      <%= f.submit %>
+    <% end %>
