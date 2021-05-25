@@ -33,6 +33,6 @@ class ChoirLeadersController < ApplicationController
     end 
 
     def choir_leader_params
-        params.require(:choir_leader).permit(:name, :password, :home_locale, :email, :phone_number, :district, :voice)
+        params.require(:choir_leader).permit(:name, :password, :password_confirmation, :home_locale, :email, :phone_number, :district, :voice)
     end
 end
