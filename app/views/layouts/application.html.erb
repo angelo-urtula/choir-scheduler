@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body><br>
   <% if admin_logged_in? %>
   Hello, Choir Leader <%= link_to current_login.name, choir_leader_path(current_login) %><br>
   <%= link_to "Logout", logout_path, method: :delete %><br>
