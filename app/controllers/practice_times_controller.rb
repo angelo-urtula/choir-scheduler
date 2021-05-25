@@ -39,6 +39,15 @@ class PracticeTimesController < ApplicationController
         find_practice
         @practice_time.update(practice_time_params)
         redirect_to practice_times_path
+    end 
+
+    def destroy
+        if admin_logged_in?
+            PracticeTime.find(params[:id]).destroy
+            redirect_to practice_times_path
+        else
+            redirect_to practice_times_path
+        end
     end
 
     private

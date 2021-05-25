@@ -1,6 +1,7 @@
  <h1> Practice Details for <%= @practice_time.time.to_formatted_s(:long) %></h1><br>
  <% if current_login == @practice_time.choir_leader %>
  <%= link_to "Edit Practice Time", edit_practice_time_path(@practice_time) %>
+ <%= button_to "Delete Practice Time", practice_time_path(@practice_time), method: :delete, data: {confirm: "Are you sure you want to delete this practice time?"} %>
  <% end %>
  <h2> Choir Leader in charge: 
  <%= link_to @practice_time.choir_leader.name, choir_leader_path(@practice_time.choir_leader) %><br>
