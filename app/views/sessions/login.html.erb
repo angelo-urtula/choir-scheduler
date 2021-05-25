@@ -1,4 +1,4 @@
-<% if user_logged_in? || admin_logged_in? %>
+<% if current_login %>
 You are already logged in as: <%= current_login.name %>
 <% else %>
 <h1> Log In Here: </h1>
