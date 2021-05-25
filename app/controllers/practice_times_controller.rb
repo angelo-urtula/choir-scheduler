@@ -30,6 +30,7 @@ class PracticeTimesController < ApplicationController
 
     def show
         find_practice
+        @choir_member = current_login
     end
 
     def update

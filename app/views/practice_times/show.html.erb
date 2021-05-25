@@ -5,3 +5,7 @@
  Locale: <%= @practice_time.locale %><br>
  Hymns: <%= @practice_time.hymns %><br>
  Currently signed up choir member:
+ <%= form_for @practice_time do |f| %>
+    <%= f.hidden_field :choir_member_id, value: @choir_member.id %>
+    <%= f.submit "Reserve this Practice Time" %>
+    <% end %>
