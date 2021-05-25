@@ -1,6 +1,6 @@
 class ChoirLeadersController < ApplicationController
     def show
-        @choir_leader = ChoirLeader.find(params[:id])
+        find_choir_leader
     end
 
     def index
@@ -8,7 +8,7 @@ class ChoirLeadersController < ApplicationController
     end
 
     def edit
-        @choir_leader = ChoirLeader.find(params[:id])
+        find_choir_leader
         if current_login == @choir_leader
             render 'edit'
         else
@@ -17,12 +17,20 @@ class ChoirLeadersController < ApplicationController
     end
 
     def update
-        @choir_leader = ChoirLeader.find(params[:id])
-        @choir_leader = ChoirLeader.update(choir_leader_params)
-        redirect_to choir_leader_path
+        find_choir_leader
+        if @choir_leader.update(choir_leader_params)
+            redirect_to choir_leader_path
+        else 
+            flash.now[:messages] = @choir_leader.errors.full_messages
+            render 'edit'
+        end
     end
 
     private
+
+    def find_choir_leader
+        @choir_leader = ChoirLeader.find(params[:id])
+    end 
 
     def choir_leader_params
         params.require(:choir_leader).permit(:name, :password, :home_locale, :email, :phone_number, :district, :voice)
