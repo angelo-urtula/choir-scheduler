@@ -11,7 +11,7 @@ class PracticeTimesController < ApplicationController
     def create
         @practice_time = PracticeTime.new(practice_time_params)
         if @practice_time.save
-            redirect_to practice_time_path(practice)
+            redirect_to practice_time_path(@practice_time)
         else
             flash.now[:messages] = @practice_time.errors.full_messages
             render 'new'
