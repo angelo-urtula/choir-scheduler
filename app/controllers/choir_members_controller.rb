@@ -15,6 +15,14 @@ class ChoirMembersController < ApplicationController
         end
     end
 
+    def show
+        find_choir_member
+    end
+
+    def index
+        @choir_members = ChoirMember.order('name ASC')
+    end
+
     def edit
         find_choir_member
         if current_login == @choir_member
@@ -32,15 +40,6 @@ class ChoirMembersController < ApplicationController
             flash.now[:messages] = @choir_member.errors.full_messages
             render 'edit'
         end
-    end
-        
-
-    def show
-        find_choir_member
-    end
-
-    def index
-        @choir_members = ChoirMember.order('name ASC')
     end
 
     private

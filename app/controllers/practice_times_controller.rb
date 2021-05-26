@@ -1,4 +1,25 @@
 class PracticeTimesController < ApplicationController
+    
+    def new
+        if admin_logged_in?
+            @practice_time = PracticeTime.new(choir_leader_id: params[:choir_leader_id])
+        else 
+            redirect_to practice_times_path
+        end
+    end
+
+    def create
+        practice = PracticeTime.create(practice_time_params)
+        redirect_to practice_times_path
+    end
+
+    def show
+        find_practice
+        if user_logged_in?
+        @choir_member = current_login
+        end
+    end
+    
     def index
         if params[:choir_leader_id]
             @practice_times = ChoirLeader.find(params[:choir_leader_id]).practice_times
@@ -7,31 +28,11 @@ class PracticeTimesController < ApplicationController
         end
     end
 
-    def new
-        if admin_logged_in?
-            @practice_time = PracticeTime.new(choir_leader_id: params[:choir_leader_id])
-        else 
-            redirect_to practice_times_path
-        end
-    end
-    
-    def create
-        practice = PracticeTime.create(practice_time_params)
-        redirect_to practice_times_path
-    end
-
     def edit
         if admin_logged_in?
             find_practice
         else
             redirect_to practice_times_path
-        end
-    end
-
-    def show
-        find_practice
-        if user_logged_in?
-        @choir_member = current_login
         end
     end
 
