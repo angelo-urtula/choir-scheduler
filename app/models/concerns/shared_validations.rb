@@ -8,6 +8,6 @@ module SharedValidations
         validates :name, presence: true
         validates :voice, :inclusion => %w(soprano alto tenor base), :allow_nil => true
         validates :phone_number, :numericality => true, :length => { :minimum => 10, :maximum =>10 }, :allow_nil => true
-        validates :email, presence: true, uniqueness: true
+        validates :email, presence: true, :uniqueness => {case_sensitive: false}
     end
 end
