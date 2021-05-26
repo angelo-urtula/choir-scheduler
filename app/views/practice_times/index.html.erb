@@ -4,7 +4,7 @@
 <% end %>
 
 <h1>Today's Practice Times:<br> <% @practice_times.todays_practices.each do |time| %>
-    <%= time.time.to_formatted_s(:long) %><br>
+    <%= link_to time.time.to_formatted_s(:long), practice_time_path(time) %><br>
     <% end %></h1>
 
     <h2>Future Practices:<br>
