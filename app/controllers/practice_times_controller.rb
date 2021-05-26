@@ -10,7 +10,7 @@ class PracticeTimesController < ApplicationController
 
     def create
         practice = PracticeTime.create(practice_time_params)
-        redirect_to practice_times_path
+        redirect_to practice_time_path(practice)
     end
 
     def show
