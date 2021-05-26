@@ -9,8 +9,13 @@ class PracticeTimesController < ApplicationController
     end
 
     def create
-        practice = PracticeTime.create(practice_time_params)
-        redirect_to practice_time_path(practice)
+        @practice_time = PracticeTime.new(practice_time_params)
+        if @practice_time.save
+            redirect_to practice_time_path(practice)
+        else
+            flash.now[:messages] = @practice_time.errors.full_messages
+            render 'new'
+        end
     end
 
     def show
