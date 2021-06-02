@@ -1,0 +1,3 @@
+# choir-scheduler
+
+This Ruby on Rails App is meant to connect choir members with choir leaders through scheduled 1-on-1 practice times. When a choir leader creates a practice time, they make it available for choir members to reserve those times in a first-come first-served basis. After cloning this app, run 'bundle install' in order to get all of the gems required to run choir-scheduler. Run 'rails db:migrate' in order to get the database set up. Run 'rails db:seed' to seed the database with the dummy data from the seeds.rb file. Finally, run 'rails s' and open the link provided by your terminal (for some it may be localhost: 3000).
