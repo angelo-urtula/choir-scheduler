@@ -65,6 +65,16 @@ class PracticeTimesController < ApplicationController
         end
     end
 
+    def reserve
+        @practice_time = PracticeTime.available_practices.first
+        if @practice_time.update(:choir_member_id => current_login.id)
+            redirect_to practice_time_path(@practice_time)
+        else
+            flash.now[:message] = "No available practice times"
+            redirect_to practice_times_path
+        end
+    end
+
     private
 
     def practice_time_params
