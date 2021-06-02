@@ -5,7 +5,7 @@
     </p>
     <p>
       <%= f.label :voice %>
-      <%= f.text_field :voice %>
+      <%= f.select :voice, options_for_select([["", ""], "soprano", "alto", "tenor", "base"]) %>
     </p>
     <p>
       <%= f.label :home_locale %>
