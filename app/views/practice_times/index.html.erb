@@ -1,7 +1,12 @@
 <br>
 <% if params[:choir_leader_id] %>
 <h1><%= link_to ChoirLeader.find(params[:choir_leader_id]).name, choir_leader_path(params[:choir_leader_id]) %> is in charge of the following times: </h1>
-
+<% else %>
+<h3>Search for Practice Times with Specific Choir Leader </h3>
+<%= form_tag(practice_times_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+    <% end %>
 <% end %>
 
 <h1>Today's Practice Times:<br> <% @practice_times.todays_practices.each do |time| %>

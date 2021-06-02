@@ -28,6 +28,15 @@ class PracticeTimesController < ApplicationController
     def index
         if params[:choir_leader_id]
             @practice_times = ChoirLeader.find(params[:choir_leader_id]).practice_times
+        elsif params[:search]
+            @choir_leader = ChoirLeader.find_by(name: params[:search])
+            if @choir_leader
+                @practice_times = @choir_leader.practice_times
+            else
+                @practice_times = PracticeTime.order('time ASC')
+                flash.now[:message] = "Sorry, we can't find that choir leader."
+                render 'index'
+            end
         else
             @practice_times = PracticeTime.order('time ASC')
         end
@@ -59,7 +68,7 @@ class PracticeTimesController < ApplicationController
     private
 
     def practice_time_params
-        params.require(:practice_time).permit(:choir_leader_id, :choir_member_id, :language, :time, :locale, :hymns)
+        params.require(:practice_time).permit(:choir_leader_id, :choir_member_id, :language, :time, :locale, :hymns, :search)
     end
 
     def find_practice
