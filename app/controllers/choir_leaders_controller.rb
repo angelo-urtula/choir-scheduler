@@ -1,7 +1,7 @@
 class ChoirLeadersController < ApplicationController
     def show
         find_choir_leader
-        @choir_members = ChoirMember.all
+        @choir_members = ChoirMember.order('name ASC')
     end
 
     def index
