@@ -1,9 +1,7 @@
 <h1> <%= @choir_leader.name %>'s Profile </h1>
-Voice: <%= @choir_leader.voice %><br>
-Home Locale: <%= @choir_leader.home_locale %><br>
-District: <%= @choir_leader.district %><br>
-Email: <%= @choir_leader.email %><br>
-Phone Number: <%= @choir_leader.phone_number %><br>
+<% for attribute in ['voice', 'home_locale', 'district', 'email', 'phone_number'] %>
+<%= attribute.humanize %>: <%= @choir_leader.attributes[attribute].to_s %><br>
+<% end %>
 <%= link_to  "#{@choir_leader.name}'s Practice Times", choir_leader_practice_times_path(@choir_leader) %>
 <br>
 <br>
