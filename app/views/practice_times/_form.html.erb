@@ -1,7 +1,7 @@
 <%= form_for @practice_time do |f|%>
     <p>
       <%= f.label :language %>
-      <%= f.text_field :language %>
+      <%= f.select :language, options_for_select([["", ""], "English", "Spanish", "Tagalog"]) %>
     </p>
     <p>
       <%= f.label :time %>
