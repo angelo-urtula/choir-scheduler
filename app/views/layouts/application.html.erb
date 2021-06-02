@@ -28,12 +28,12 @@
     <br>
     <%= link_to "View all choir members", choir_members_path %><br>
     <%= link_to "View all choir leaders", choir_leaders_path %><br>
-    <%= link_to "Practice Times", practice_times_path %>
+    <%= link_to "Practice Times", practice_times_path %><br>
+    <br>
 
-    
-    <%= yield %>
     <% flash.each do |type, msg| %>
       <%= msg %>
       <% end %>
+    <%= yield %>
   </body>
 </html>
