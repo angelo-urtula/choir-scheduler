@@ -5,7 +5,7 @@
 <% end %>
 
 <h1>Today's Practice Times:<br> <% @practice_times.todays_practices.each do |time| %>
-    <%= link_to time.time.to_formatted_s(:long), practice_time_path(time) %><br>
+    <%= link_to "#{time.time.to_formatted_s(:long)} with #{time.choir_leader.name}", practice_time_path(time) %><br>
     <% end %></h1>
 
 <% if params[:choir_leader_id] %>
@@ -16,6 +16,11 @@
 <% else %>
     <h2>Available Practices:<br>
     <% @practice_times.available_practices.each do |time| %>
+        <%= link_to "#{time.time.to_formatted_s(:long)} with #{time.choir_leader.name}", practice_time_path(time) %><br>
+        <% end %>
+        <br>
+    <h2>Reserved Practices:<br>
+    <% @practice_times.reserved_practices.each do |time| %>
         <%= link_to "#{time.time.to_formatted_s(:long)} with #{time.choir_leader.name}", practice_time_path(time) %><br>
         <% end %>
         <% end %>
